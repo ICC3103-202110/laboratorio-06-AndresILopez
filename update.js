@@ -3,9 +3,6 @@ const FUNCTIONS = {
     'no': leftSide=false
 }
 
-if (leftSide){
-    
-}
 
 const ktoC = x => x-273
 
@@ -19,12 +16,18 @@ const ftoK = x => (x-32)/(9/5)+273
 
 const ftoC = x => (x-32)/(9/5)
 
-function update(input, model){
+function update(input, leftValue, leftUnit, rightUnit, model){
     const {leftValue} = model
     const newValue = FUNCTIONS[input](leftValue)
+    if (leftSide){
+        const value = leftValue
+    }
+    else{
+        const value = rightValue
+    }
     return {
         ...model,
-        leftValue: newValuer,
+        leftValue: newValue,
         input: input
     }
 }

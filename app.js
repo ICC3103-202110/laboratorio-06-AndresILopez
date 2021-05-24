@@ -10,7 +10,9 @@ async function app(state, update, view){
         printTable(table)
         const {input} = await listForm(model)
         const {leftValue} = await inputForm(model)
-        const updatedModel = update(input, model)
+        const {leftUnit} = await listForm(model)
+        const {rightUnit} = await listForm(model)
+        const updatedModel = update(input, leftValue, leftUnit, rightUnit, model)
         state = {
             ...state,
             model: updatedModel,
