@@ -26,35 +26,45 @@ function getTable(model){
 }
 
 function inputForm(model){
-    const {input} = model
-    const message = 'Left temperature is source?'
+    const {leftValue} = model
+    const message = "temperature value to convert?"
     return inquirer.prompt([
-        {
-            name: 'input',
-            type: 'input',
+        { 
+            name: 'leftValue',
+            type: 'leftValue',
             message: message,
-            default: input,
-            validate: function(value){
-                if(value === 'yes' || value === 'no'){
-                    return true
-                } else {
-                    return 'yes/no'
-                }
-            }
+            default: leftValue
+
         }
     ])
 }
 
 function listForm(model){
     const {input} = model
-    const message = 'Left temperature is source?'
+    const {leftUnit} = model
+    const {rightUnit} = model
+    const message2 = "from?"
+    const message3 = "to?"
     const choices = ['yes', 'no']
+    const choices2 = ["Fahrenheit","celcius","kelvin"]
     return inquirer.prompt({
         name: 'input',
         type: 'list',
         message: message,
         default: input,
         choices: choices
+    },{
+        name: "leftUnit",
+        type: "list",
+        message: message2,
+        default: leftUnit,
+        choices: choices2
+    },{
+        name: "rightUnit",
+        type: "list",
+        message: message3,
+        default: rightUnit,
+        choices: choices2
     })
 }
 

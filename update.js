@@ -3,6 +3,9 @@ const FUNCTIONS = {
     'no': leftSide=false
 }
 
+if (leftSide){
+    
+}
 
 const ktoC = x => x-273
 
